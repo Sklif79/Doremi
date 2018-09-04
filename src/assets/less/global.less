@@ -1,0 +1,50 @@
+/* - - - - - - - - - - - - - - - - Global styles - - - - - - - - - - - - - - - -*/
+html {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    color: @main-color;
+}
+
+html,
+body {
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    .fsize(14);
+}
+
+.main {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.header, .footer {
+    flex: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.slick-arrow {
+    cursor: pointer;
+}
