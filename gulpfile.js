@@ -94,13 +94,13 @@ gulp.task('styleLess:build', function () {
 });
 
 gulp.task('images:build', function () {
-    gulp.src(path.src.img)
+    return gulp.src(path.src.img)
         .pipe(gulp.dest(path.build.img))
         .pipe(reload({stream: true}));
 });
 
 gulp.task('fonts:build', function () {
-    gulp.src(path.src.fonts)
+    return gulp.src(path.src.fonts)
         .pipe(gulp.dest(path.build.fonts))
         .pipe(reload({stream: true}));
 });

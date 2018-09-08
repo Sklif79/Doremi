@@ -28,8 +28,26 @@ $(document).ready(function () {
                 },
 
             },
-            title: { type : 'inside' },
+            title: {type: 'inside'},
         }
     });
 
+
+    clearSearchField();
 });
+
+function clearSearchField() {
+    var $resetBtn = $('.search__reset');
+
+    $('.search__field').on('keyup', function () {
+        if ($(this).val()) {
+            $resetBtn.css({"visibility": "visible"});
+        } else {
+            $resetBtn.css({"visibility": "hidden"});
+        }
+    });
+
+    $resetBtn.on("click", function () {
+        $(this).css({"visibility": "hidden"});
+    });
+}
