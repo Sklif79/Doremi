@@ -6,49 +6,76 @@
             <a href="#" class="header-top__version">другая версия</a>
         </div>
         <div class="header-top__side">
-            <span class="telegram-icon header-top__phone-ico"></span>
-            <span class="viber-icon header-top__phone-ico"></span>
+            <svg class="header-top__phone-ico">
+                <use xlink:href='#svg-telegram' href='#svg-telegram' />
+            </svg>
+            <svg class="header-top__phone-ico">
+                <use xlink:href='#svg-viber' href='#svg-viber' />
+            </svg>
             <a href="tel:+375259387109" class="header-top__phone">+375 25 938-71-09</a>
             <span class="header-top__schedule">Пн-Вс с 10:00 до 20:00</span>
         </div>
     </div>
     <div class="header-bottom">
-        <a href="/" class="header-logo"></a>
+        <a href="/" class="header-logo">
+            <svg class="header-logo__svg">
+                <use xlink:href='#svg-logo' href='#svg-logo' />
+            </svg>
+        </a>
         <ul class="header-nav">
             <li>
                 <a href="#">
-                    <img src="assets/images/male.png" class="header-nav__img">
+                    <svg class="header-nav__img">
+                        <use xlink:href='#svg-nav-male' href='#svg-nav-male' />
+                    </svg>
                     Для мужчин
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <img src="assets/images/venus.png" class="header-nav__img">
+                    <svg class="header-nav__img">
+                        <use xlink:href='#svg-nav-female' href='#svg-nav-female' />
+                    </svg>
                     Для Женщин
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <img src="assets/images/brands.png" class="header-nav__img">
+                    <svg class="header-nav__img">
+                        <use xlink:href='#svg-nav-brands' href='#svg-nav-brands' />
+                    </svg>
                     Бренды
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <img src="assets/images/discount.png" class="header-nav__img">
+                    <svg class="header-nav__img">
+                        <use xlink:href='#svg-nav-sales' href='#svg-nav-sales' />
+                    </svg>
                     Акции
                 </a>
             </li>
         </ul>
         <form action="" method="post" name="" class="search">
             <input type="text" name="search" class="search__field" placeholder="Давайте найдем аромат, более 2500 товаров…">
-            <input type="reset" class="search__reset">
-            <input type="submit" value="" class="search__submit">
+            <button type="reset" class="search__reset">
+                <svg class="search__reset-svg">
+                    <use xlink:href='#svg-close' href='#svg-close' />
+                </svg>
+            </button>
+            <button type="submit" value="" class="search__submit">
+                <svg class="search__submit-svg">
+                    <use xlink:href='#svg-magnifier' href='#svg-magnifier' />
+                </svg>
+            </button>
         </form>
 
         <!-- добавь класс empty для пустой корзины -->
         <div class="header-basket empty">
             <div class="header-basket__img">
+                <svg class="header-basket__svg">
+                    <use xlink:href='#svg-header-basket' href='#svg-header-basket' />
+                </svg>
                 <div class="header-basket__count">3</div>
             </div>
             <div class="header-basket__empty">
