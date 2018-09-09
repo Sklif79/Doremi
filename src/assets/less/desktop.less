@@ -137,12 +137,15 @@
 .search__field::-webkit-input-placeholder {
   color: @gray17;
 }
+
 .search__field:-moz-placeholder {
   color: @gray17;
 }
+
 .search__field::-moz-placeholder {
   color: @gray17;
 }
+
 .search__field:-ms-input-placeholder {
   color: @gray17;
 }
@@ -237,6 +240,150 @@
   font-weight: 300;
 }
 
+/* - - - - - - - - - - - - - - - - images-nav - - - - - - - - - - - - - - - -*/
+.images-nav {
+  background-color: @main-color;
+  min-height: 406px;
+  display: flex;
+}
+
+.images-nav__big {
+  width: 72.2%;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  color: #fff;
+  display: flex;
+  justify-content: flex-end;
+  padding: 25px 56px 20px;
+}
+
+.images-nav__big-info {
+  width: 37.12%;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-weight: 300;
+  font-family: Roboto, sans-serif;
+
+  p {
+    .fsz(13);
+    margin-bottom: 30px;
+    .lh(18);
+  }
+}
+
+.images-nav__big-title {
+  font-weight: 900;
+  .fsz(36);
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 12px;
+}
+
+.images-nav__big-subtitle {
+  .fsz(18);
+  .lh(25);
+  margin-bottom: 17px;
+}
+
+.images-nav__big-btn {
+  &::after {
+    content: "";
+    background: url('../images/sprite.png') no-repeat -216px -36px;
+    width: 14px;
+    height: 12px;
+    margin-left: 10px;
+    display: inline-block;
+    margin-bottom: -2px;
+  }
+}
+
+.images-nav__double {
+  display: flex;
+  flex-direction: column;
+  width: 27.8%;
+  min-width: 356px;
+}
+
+.images-nav__link {
+  height: 50%;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  color: #fff;
+  font-weight: 500;
+  .fsz(16);
+  .lh(23);
+  display: flex;
+  align-items: center;
+  padding: 35px;
+}
+
+.images-nav__double-women {
+  background-color: @red;
+  background-position: 100% 0;
+  padding-top: 18px;
+}
+
+.images-nav__double-men {
+  background-color: @blue;
+  justify-content: flex-end;
+  padding-right: 30px;
+  padding-bottom: 17px;
+
+  .images-nav__double-title::after {
+    margin-left: 5px;
+  }
+}
+
+.images-nav__double-title {
+  padding-right: 24px;
+
+  &::after {
+    content: "";
+    background: url('../images/sprite.png') no-repeat -223px -199px;
+    width: 14px;
+    height: 12px;
+    margin-left: 10px;
+    display: inline-block;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* - - - - - - - - - - - - - - - - modifiers - - - - - - - - - - - - - - - -*/
+.theme_white {
+  background: #fff;
+  color: @main-color;
+}
 
 
 
