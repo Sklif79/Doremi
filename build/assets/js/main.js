@@ -11,13 +11,14 @@ $(document).ready(function () {
     //     $('.cost-learning-slider').slick('slickPrev');
     // });
 
-    // $('.other-services-slider').slick({
-    //     slidesToShow: 2,
-    //     slidesToScroll: 1,
-    //     nextArrow: '<div class="our-service-slider__next"></div>',
-    //     prevArrow: '<div class="our-service-slider__prev"></div>',
-    //     arrows: true
-    // });
+    $('.js_product-slider').slick({
+        slidesToShow: 6,
+        slidesToScroll: 1,
+        infinite: true,
+        // nextArrow: '<div class="our-service-slider__next"></div>',
+        // prevArrow: '<div class="our-service-slider__prev"></div>',
+        arrows: true
+    });
 
     //fancybox
     $('a.fancybox').fancybox({
@@ -35,6 +36,7 @@ $(document).ready(function () {
     });
 
     clearSearchField();
+    productSliderHeight();
 });
 
 function clearSearchField() {
@@ -52,3 +54,16 @@ function clearSearchField() {
         $(this).css({ "visibility": "hidden" });
     });
 }
+
+function productSliderHeight() {
+    $('.product-slider__brand').setMaxHeights();
+    $('.product-slider__title').setMaxHeights();
+}
+
+$.fn.setMaxHeights = function () {
+    var maxHeight = this.map(function (i, e) {
+        return $(e).height();
+    }).get();
+
+    return this.height(Math.max.apply(this, maxHeight));
+};
