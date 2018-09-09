@@ -2,15 +2,6 @@
 
 $(document).ready(function () {
     //sliders
-
-    //кастомное управление для cost-learning-slider
-    // $('.cost-learning-slider-wrap .slider-next').on('click', function() {
-    //     $('.cost-learning-slider').slick('slickNext');
-    // });
-    // $('.cost-learning-slider-wrap .slider-prev').on('click', function() {
-    //     $('.cost-learning-slider').slick('slickPrev');
-    // });
-
     $('.js_product-slider').slick({
         slidesToShow: 6,
         slidesToScroll: 1,
@@ -31,6 +22,13 @@ $(document).ready(function () {
         infinite: true,
         arrows: true,
         rows: 2
+    });
+
+    //custom select
+    $('.js_custom-select').select2({
+        width: "100%",
+        theme: 'classic',
+        minimumResultsForSearch: Infinity
     });
 
     //fancybox
