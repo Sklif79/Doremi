@@ -23,6 +23,14 @@ $(document).ready(function () {
         arrows: true
     });
 
+    $('.js_brands-slider').slick({
+        slidesToShow: 7,
+        slidesToScroll: 1,
+        infinite: true,
+        arrows: true,
+        rows: 2
+    });
+
     //fancybox
     $('a.fancybox').fancybox({
         closeBtn: true,
