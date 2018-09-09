@@ -48,6 +48,7 @@ $(document).ready(function () {
 
     clearSearchField();
     productSliderHeight();
+    miniCard();
 });
 
 function clearSearchField() {
@@ -69,6 +70,30 @@ function clearSearchField() {
 function productSliderHeight() {
     $('.product-slider__brand').setMaxHeights();
     $('.product-slider__title').setMaxHeights();
+}
+
+function miniCard() {
+    var leaveBasket = false;
+
+    if ($('.header-basket-minicard__item').length) {
+        $('body').on('mouseenter', '.header-basket, .header-basket-minicard', function () {
+            leaveBasket = false;
+            $('.header-basket-minicard').addClass('active');
+        });
+
+        $('body').on('mouseleave', '.header-basket, .header-basket-minicard', function () {
+            leaveBasket = true;
+            checkLeaveBasket();
+        });
+    }
+
+    function checkLeaveBasket() {
+        setTimeout(function () {
+            if (leaveBasket) {
+                $('.header-basket-minicard').removeClass('active');
+            }
+        }, 500);
+    }
 }
 
 $.fn.setMaxHeights = function () {

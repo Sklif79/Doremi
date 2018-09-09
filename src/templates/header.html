@@ -7,10 +7,10 @@
         </div>
         <div class="header-top__side">
             <svg class="header-top__phone-ico">
-                <use xlink:href='#svg-telegram' href='#svg-telegram' />
+                <use xlink:href='#svg-telegram' href='#svg-telegram'/>
             </svg>
             <svg class="header-top__phone-ico">
-                <use xlink:href='#svg-viber' href='#svg-viber' />
+                <use xlink:href='#svg-viber' href='#svg-viber'/>
             </svg>
             <a href="tel:+375259387109" class="header-top__phone">+375 25 938-71-09</a>
             <span class="header-top__schedule">Пн-Вс с 10:00 до 20:00</span>
@@ -19,14 +19,14 @@
     <div class="header-bottom">
         <a href="/" class="header-logo">
             <svg class="header-logo__svg">
-                <use xlink:href='#svg-logo' href='#svg-logo' />
+                <use xlink:href='#svg-logo' href='#svg-logo'/>
             </svg>
         </a>
         <ul class="header-nav">
             <li>
                 <a href="#">
                     <svg class="header-nav__img">
-                        <use xlink:href='#svg-nav-male' href='#svg-nav-male' />
+                        <use xlink:href='#svg-nav-male' href='#svg-nav-male'/>
                     </svg>
                     Для мужчин
                 </a>
@@ -34,7 +34,7 @@
             <li>
                 <a href="#">
                     <svg class="header-nav__img">
-                        <use xlink:href='#svg-nav-female' href='#svg-nav-female' />
+                        <use xlink:href='#svg-nav-female' href='#svg-nav-female'/>
                     </svg>
                     Для Женщин
                 </a>
@@ -42,7 +42,7 @@
             <li>
                 <a href="#">
                     <svg class="header-nav__img">
-                        <use xlink:href='#svg-nav-brands' href='#svg-nav-brands' />
+                        <use xlink:href='#svg-nav-brands' href='#svg-nav-brands'/>
                     </svg>
                     Бренды
                 </a>
@@ -50,30 +50,31 @@
             <li>
                 <a href="#">
                     <svg class="header-nav__img">
-                        <use xlink:href='#svg-nav-sales' href='#svg-nav-sales' />
+                        <use xlink:href='#svg-nav-sales' href='#svg-nav-sales'/>
                     </svg>
                     Акции
                 </a>
             </li>
         </ul>
         <form action="" method="post" name="" class="search">
-            <input type="text" name="search" class="search__field" placeholder="Давайте найдем аромат, более 2500 товаров…">
+            <input type="text" name="search" class="search__field"
+                   placeholder="Давайте найдем аромат, более 2500 товаров…">
             <button type="reset" class="search__reset">
                 <svg class="search__reset-svg">
-                    <use xlink:href='#svg-close' href='#svg-close' />
+                    <use xlink:href='#svg-close' href='#svg-close'/>
                 </svg>
             </button>
             <button type="submit" value="" class="search__submit">
                 <svg class="search__submit-svg">
-                    <use xlink:href='#svg-magnifier' href='#svg-magnifier' />
+                    <use xlink:href='#svg-magnifier' href='#svg-magnifier'/>
                 </svg>
             </button>
         </form>
 
-        <div class="header-basket">
+        <a href="#" class="header-basket">
             <div class="header-basket__img">
                 <svg class="header-basket__svg">
-                    <use xlink:href='#svg-header-basket' href='#svg-header-basket' />
+                    <use xlink:href='#svg-header-basket' href='#svg-header-basket'/>
                 </svg>
             </div>
             <div class="header-basket__desktop">
@@ -81,6 +82,37 @@
                 <span class="header-basket__desktop-subtitle">
                     <span class="header-basket__count">2</span> товара <b>240 р</b>
                 </span>
+            </div>
+        </a>
+
+        <!-- миникарта будет отображаться только при наличии .header-basket-minicard__item -->
+        <div class="header-basket-minicard">
+            <div class="header-basket-minicard-inner">
+                <div class="header-basket-minicard-items">
+                    <div class="header-basket-minicard__item">
+                        <div class="header-basket-minicard__img">
+                            <img src="assets/images/Temp/minicard-img.png" alt="">
+                        </div>
+                        <div class="header-basket-minicard__description">
+                            <div class="header-basket-minicard__title">Etro PEGASO Unisex</div>
+                            <div class="header-basket-minicard__info">50 ml <span>1 шт.</span></div>
+                            <div class="header-basket-minicard__price">80 руб.</div>
+                        </div>
+                        <div class="header-basket-minicard__close"></div>
+                    </div>
+                    <div class="header-basket-minicard__item">
+                        <div class="header-basket-minicard__img">
+                            <img src="assets/images/Temp/minicard-img.png" alt="">
+                        </div>
+                        <div class="header-basket-minicard__description">
+                            <div class="header-basket-minicard__title">Etro PEGASO Unisex</div>
+                            <div class="header-basket-minicard__info">50 ml <span>1 шт.</span></div>
+                            <div class="header-basket-minicard__price">80 руб.</div>
+                        </div>
+                        <div class="header-basket-minicard__close"></div>
+                    </div>
+                </div>
+                <a href="#" class="btn header-basket-minicard__lnk theme_red">Оформить заказ</a>
             </div>
         </div>
     </div>

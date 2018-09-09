@@ -39,6 +39,14 @@ h3 {
     font-weight: 500;
 }
 
+a:not([class]) {
+    color: @red;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 img {
     max-width: 100%;
 }
@@ -87,6 +95,7 @@ strong, b {
     padding: 0 23px;
     font-weight: 500;
     font-family: "Montserrat", sans-serif;
+    text-align: center;
 }
 
 .select2-container .select2-choice {
@@ -121,4 +130,8 @@ strong, b {
 
 .select2-results .select2-highlighted {
     background: @black17;
+}
+
+.select2-container .select2-choice .select2-arrow b {
+    background: none;
 }
