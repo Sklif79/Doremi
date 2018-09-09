@@ -13,8 +13,13 @@ $(document).ready(function () {
         slidesToShow: 6,
         slidesToScroll: 1,
         infinite: true,
-        // nextArrow: '<div class="our-service-slider__next"></div>',
-        // prevArrow: '<div class="our-service-slider__prev"></div>',
+        arrows: true
+    });
+
+    $('.js_articles-slider').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        infinite: true,
         arrows: true
     });
 
