@@ -9,6 +9,14 @@
 @import "global.less";
 
 /* - - - - - - - - - - - - - - - - header - - - - - - - - - - - - - - - -*/
+.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 10000;
+}
+
 .header-top {
   background: #fff;
   display: flex;
@@ -371,16 +379,6 @@
   font-family: Roboto, sans-serif;
   .fsz(10);
   font-weight: 300;
-}
-
-.header_fixed {
-  .header {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    z-index: 10000;
-  }
 }
 
 /* - - - - - - - - - - - - - - - - search-result - - - - - - - - - - - - - - - -*/
