@@ -1,11 +1,6 @@
 $(document).ready(function () {
     //sliders
-    $('.js_product-slider').slick({
-        slidesToShow: 6,
-        slidesToScroll: 1,
-        infinite: true,
-        arrows: true
-    });
+    productSliderInit();
 
     $('.js_articles-slider').slick({
         slidesToShow: 3,
@@ -50,22 +45,42 @@ $(document).ready(function () {
     miniCard();
     toUp();
     fixedHeader();
+    //searchResultCornerLeftPosition();
+});
+
+$(window).resize(function () {
+    productSliderHeight();
+    //searchResultCornerLeftPosition();
 });
 
 function clearSearchField() {
-    var $resetBtn = $('.search__reset');
+    var $resetBtn = $('.search__reset'),
+        $searchResult = $('.search-result');
 
     $('.search__field').on('keyup', function () {
         if ($(this).val()) {
             $resetBtn.css({"visibility": "visible"});
+
+            //сюда можно впихать аякс для поиска,
+            //если нужен поиск после каждой введенной буквы (добавить переинициализацию слайдера и высоты продуктов)
+            //productSliderHeight();
+            //productSliderInit();
+            $searchResult.addClass('active');
+
         } else {
             $resetBtn.css({"visibility": "hidden"});
+            $searchResult.removeClass('active');
         }
     });
 
     $resetBtn.on("click", function () {
         $(this).css({"visibility": "hidden"});
+        $searchResult.removeClass('active');
     });
+}
+
+function searchResultCornerLeftPosition() {
+    $('.search-result__corner').css({"left": Math.ceil($('.search__field').offset().left) + 60 + "px"});
 }
 
 function productSliderHeight() {
@@ -119,19 +134,28 @@ function fixedHeader() {
     $(window).scroll(function () {
         if ($(this).scrollTop() > 0) {
             $body.addClass('header_fixed');
-            $main.css({'margin-top':headerHeight + 'px'});
+            $main.css({'margin-top': headerHeight + 'px'});
         }
         else {
             $body.removeClass('header_fixed');
-            $main.css({'margin-top':0});
+            $main.css({'margin-top': 0});
         }
     });
 }
 
-$.fn.setMaxHeights = function() {
-    var maxHeight = this.map(function(i,e) {
+function productSliderInit() {
+    $('.js_product-slider').slick({
+        slidesToShow: 6,
+        slidesToScroll: 1,
+        infinite: true,
+        arrows: true
+    });
+}
+
+$.fn.setMaxHeights = function () {
+    var maxHeight = this.map(function (i, e) {
         return $(e).height();
     }).get();
 
-    return this.height( Math.max.apply(this, maxHeight) );
+    return this.height(Math.max.apply(this, maxHeight));
 };
