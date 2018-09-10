@@ -97,7 +97,8 @@
 
     &:hover {
       background: fade(#fff, 10%);
-      text-decoration: none;
+      //text-decoration: none;
+      border: none;
     }
   }
 }
@@ -227,6 +228,10 @@
 
 .header-basket-minicard__lnk {
   width: 100%;
+
+  &:hover {
+    box-shadow: 0 4px 4px fade(@red, 25%);
+  }
 }
 
 .header-basket-minicard__item {
@@ -490,7 +495,8 @@
 
     .product-slider__title {
       color: @red;
-      text-decoration: underline;
+      border-bottom: 1px solid @red;
+      //text-decoration: underline;
     }
   }
 
@@ -543,12 +549,12 @@
 .product-slider__title {
   .lh(20);
   .fsz(14);
-  margin-bottom: 11px;
+  display: inline;
 }
 
 .product-slider__price {
   .fsz(10);
-
+  margin-top: 11px;
   span {
     .fsz(18);
     font-weight: bold;
@@ -562,6 +568,10 @@
   .slick-list {
     margin-right: -20px;
   }
+}
+
+.articles-slider-container {
+  //overflow: hidden;
 }
 
 .articles-slider-item {
@@ -600,10 +610,15 @@
 /* - - - - - - - - - - - - - - - - brands-slider - - - - - - - - - - - - - - - -*/
 .brands-slider {
   font-size: 0;
+  line-height: 0;
   padding: 34px 0 11px;
 
-  .slick-list {
-    margin-right: -11px;
+  .slick-prev {
+    left: -38px;
+  }
+
+  .slick-next {
+    right: -38px;
   }
 }
 
@@ -612,9 +627,12 @@
   padding: 4px;
   margin-bottom: 25px;
   border: 1px solid transparent;
-  display: flex;
+  display: flex!important;
   align-items: center;
   justify-content: center;
+  position: relative;
+  margin-right: 4px;
+
 
   &:hover {
     border-color: @main-color;
@@ -695,7 +713,8 @@
     color: #fff;
 
     &:hover {
-      text-decoration: none;
+      //text-decoration: none;
+      border: none;
     }
 
     &:last-of-type {
@@ -843,7 +862,9 @@
 
 
 
+@media screen and (max-width: 1200px){
 
+}
 
 
 /* - - - - - - - - - - - - - - - - modifiers - - - - - - - - - - - - - - - -*/
