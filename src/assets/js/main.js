@@ -49,6 +49,7 @@ $(document).ready(function () {
     productSliderHeight();
     miniCard();
     toUp();
+    fixedHeader();
 });
 
 function clearSearchField() {
@@ -107,6 +108,23 @@ function toUp() {
 
     $(document).on('click', '.up-btn', function () {
         $('html, body').animate({scrollTop: 0}, 500);
+    });
+}
+
+function fixedHeader() {
+    var $body = $('body'),
+        $main = $('.main'),
+        headerHeight = $('.header').height();
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 0) {
+            $body.addClass('header_fixed');
+            $main.css({'margin-top':headerHeight + 'px'});
+        }
+        else {
+            $body.removeClass('header_fixed');
+            $main.css({'margin-top':0});
+        }
     });
 }
 
