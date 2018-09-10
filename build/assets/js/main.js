@@ -49,6 +49,7 @@ $(document).ready(function () {
     clearSearchField();
     productSliderHeight();
     miniCard();
+    toUp();
 });
 
 function clearSearchField() {
@@ -94,6 +95,20 @@ function miniCard() {
             }
         }, 500);
     }
+}
+
+function toUp() {
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 200) {
+            $('.up-btn').show();
+        } else {
+            $('.up-btn').hide();
+        }
+    });
+
+    $(document).on('click', '.up-btn', function () {
+        $('html, body').animate({ scrollTop: 0 }, 500);
+    });
 }
 
 $.fn.setMaxHeights = function () {
