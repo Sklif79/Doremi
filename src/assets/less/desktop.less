@@ -80,6 +80,15 @@
   align-items: center;
 }
 
+.header-bottom-left, .header-bottom-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-bottom-right {
+  flex-grow: 1;
+}
+
 .header-logo__svg {
   width: 170px;
   height: 32px;
@@ -326,24 +335,6 @@
   }
 }
 
-//.header-basket__count {
-//  display: inline-block;
-//  text-align: center;
-//  height: 14px;
-//  border-radius: 14px;
-//  line-height: 14px;
-//  color: #ffff;
-//  background-color: @red;
-//  font-weight: bold;
-//  .fsz(9);
-//  padding-left: 4px;
-//  padding-right: 4px;
-//  white-space: nowrap;
-//  position: absolute;
-//  top: -3px;
-//  right: 4px;
-//}
-
 .header-basket__img {
   flex: none;
   display: flex;
@@ -379,6 +370,38 @@
   font-family: Roboto, sans-serif;
   .fsz(10);
   font-weight: 300;
+}
+
+.header-bottom-search-btn {
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  display: none;
+
+  &.active {
+    .search-btn__svg-magnifier {
+      display: none;
+    }
+
+    .search-btn__svg-close {
+      display: block;
+    }
+  }
+}
+
+.search-btn__svg-magnifier {
+  fill: #fff;
+  width: 18px;
+  height: 18px;
+}
+
+.search-btn__svg-close {
+  stroke: #fff;
+  width: 15px;
+  height: 16px;
+  display: none;
 }
 
 /* - - - - - - - - - - - - - - - - search-result - - - - - - - - - - - - - - - -*/
@@ -556,6 +579,10 @@
   padding: 30px 0;
 }
 
+.products-slider-container {
+  display: flex; //remove this for slider
+}
+
 .products-slider-item {
   padding: 48px 10px 37px;
   text-align: center;
@@ -639,10 +666,10 @@
   .slick-list {
     margin-right: -20px;
   }
-}
 
-.articles-slider-item {
-  margin-right: 20px;
+  .slick-slide {
+    margin-right: 20px;
+  }
 }
 
 .articles-slider__img {
@@ -680,12 +707,8 @@
   line-height: 0;
   padding: 34px 0 11px;
 
-  .slick-prev {
-    left: -38px;
-  }
-
-  .slick-next {
-    right: -38px;
+  .slick-slide {
+    margin-right: 5px;
   }
 }
 
@@ -698,7 +721,6 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  margin-right: 4px;
 
   &:hover {
     border-color: @main-color;

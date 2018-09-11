@@ -17,73 +17,84 @@
         </div>
     </div>
     <div class="header-bottom">
-        <a href="/" class="header-logo">
-            <svg class="header-logo__svg">
-                <use xlink:href='#svg-logo' href='#svg-logo'/>
-            </svg>
-        </a>
-        <ul class="header-nav">
-            <li>
-                <a href="#">
-                    <svg class="header-nav__img">
-                        <use xlink:href='#svg-nav-male' href='#svg-nav-male'/>
-                    </svg>
-                    Для мужчин
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <svg class="header-nav__img">
-                        <use xlink:href='#svg-nav-female' href='#svg-nav-female'/>
-                    </svg>
-                    Для Женщин
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <svg class="header-nav__img">
-                        <use xlink:href='#svg-nav-brands' href='#svg-nav-brands'/>
-                    </svg>
-                    Бренды
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <svg class="header-nav__img">
-                        <use xlink:href='#svg-nav-sales' href='#svg-nav-sales'/>
-                    </svg>
-                    Акции
-                </a>
-            </li>
-        </ul>
-        <form action="" method="post" name="" class="search">
-            <input type="text" name="search" class="search__field"
-                   placeholder="Давайте найдем аромат, более 2500 товаров…">
-            <button type="reset" class="search__reset">
-                <svg class="search__reset-svg">
-                    <use xlink:href='#svg-close' href='#svg-close'/>
+        <div class="header-bottom-left">
+            <a href="/" class="header-logo">
+                <svg class="header-logo__svg">
+                    <use xlink:href='#svg-logo' href='#svg-logo'/>
                 </svg>
-            </button>
-            <button type="submit" value="" class="search__submit">
-                <svg class="search__submit-svg">
+            </a>
+            <ul class="header-nav">
+                <li>
+                    <a href="#">
+                        <svg class="header-nav__img">
+                            <use xlink:href='#svg-nav-male' href='#svg-nav-male'/>
+                        </svg>
+                        Для мужчин
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg class="header-nav__img">
+                            <use xlink:href='#svg-nav-female' href='#svg-nav-female'/>
+                        </svg>
+                        Для Женщин
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg class="header-nav__img">
+                            <use xlink:href='#svg-nav-brands' href='#svg-nav-brands'/>
+                        </svg>
+                        Бренды
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg class="header-nav__img">
+                            <use xlink:href='#svg-nav-sales' href='#svg-nav-sales'/>
+                        </svg>
+                        Акции
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="header-bottom-right">
+            <form action="" method="post" name="" class="search">
+                <input type="text" name="search" class="search__field"
+                       placeholder="Давайте найдем аромат, более 2500 товаров…">
+                <button type="reset" class="search__reset">
+                    <svg class="search__reset-svg">
+                        <use xlink:href='#svg-close' href='#svg-close'/>
+                    </svg>
+                </button>
+                <button type="submit" value="" class="search__submit">
+                    <svg class="search__submit-svg">
+                        <use xlink:href='#svg-magnifier' href='#svg-magnifier'/>
+                    </svg>
+                </button>
+            </form>
+            <div class="header-bottom-search-btn">
+                <svg class="search-btn__svg-magnifier">
                     <use xlink:href='#svg-magnifier' href='#svg-magnifier'/>
                 </svg>
-            </button>
-        </form>
-
-        <a href="#" class="header-basket">
-            <div class="header-basket__img">
-                <svg class="header-basket__svg">
-                    <use xlink:href='#svg-header-basket' href='#svg-header-basket'/>
+                <svg class="search-btn__svg-close">
+                    <use xlink:href='#svg-close' href='#svg-close'/>
                 </svg>
             </div>
-            <div class="header-basket__desktop">
-                Корзина
-                <span class="header-basket__desktop-subtitle">
+            <a href="#" class="header-basket">
+                <div class="header-basket__img">
+                    <svg class="header-basket__svg">
+                        <use xlink:href='#svg-header-basket' href='#svg-header-basket'/>
+                    </svg>
+                </div>
+                <div class="header-basket__desktop">
+                    Корзина
+                    <span class="header-basket__desktop-subtitle">
                     <span class="header-basket__count">2</span> товара <b>240 р</b>
                 </span>
-            </div>
-        </a>
+                </div>
+            </a>
+        </div>
 
         <!-- миникарта будет отображаться только при наличии .header-basket-minicard__item -->
         <div class="header-basket-minicard">
