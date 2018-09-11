@@ -18,11 +18,17 @@
     </div>
     <div class="header-bottom">
         <div class="header-bottom-left">
+            <div class="header-mobile-btn">
+                <svg class="header-mobile-btn__ico">
+                    <use xlink:href='#svg-mobile-nav' href='#svg-mobile-nav'/>
+                </svg>
+            </div>
             <a href="/" class="header-logo">
                 <svg class="header-logo__svg">
                     <use xlink:href='#svg-logo' href='#svg-logo'/>
                 </svg>
             </a>
+            <div class="header-nav-wrap">
             <ul class="header-nav">
                 <li>
                     <a href="#">
@@ -57,6 +63,13 @@
                     </a>
                 </li>
             </ul>
+                <ul class="header-nav-mobile">
+                    <li><a href="#">ДОСТАВКА</a></li>
+                    <li><a href="#">ПРЕДЗАКАЗ ТОВАРОВ</a></li>
+                    <li><a href="#">ОПЛАТА</a></li>
+                    <li><a href="#">КОНТАКТЫ</a></li>
+                </ul>
+            </div>
         </div>
         <div class="header-bottom-right">
             <form action="" method="post" name="" class="search">
@@ -96,7 +109,7 @@
             </a>
         </div>
 
-        <!-- миникарта будет отображаться только при наличии .header-basket-minicard__item -->
+        <!-- миникарта будет отображаться только при наличии позиций .header-basket-minicard__item -->
         <div class="header-basket-minicard">
             <div class="header-basket-minicard-inner">
                 <div class="header-basket-minicard-items">
@@ -379,9 +392,17 @@
         <circle cx="25" cy="25" r="25" fill="#07080C"/>
         <path d="M25.8911 20.3598L33.6306 27.9029C34.1231 28.3827 34.1231 29.1607 33.6306 29.6403C33.1384 30.1199 32.3402 30.1199 31.8481 29.6403L24.9999 22.9658L18.1519 29.6401C17.6595 30.1197 16.8614 30.1197 16.3693 29.6401C15.8769 29.1604 15.8769 28.3825 16.3693 27.9027L24.1088 20.3596C24.355 20.1198 24.6774 20 24.9998 20C25.3225 20 25.645 20.12 25.8911 20.3598Z" fill="white"/>
     </symbol>
+    <symbol id="svg-mobile-nav" viewBox="0 0 32 32">
+        <rect x="0.5" y="0.5" width="31" height="31"/>
+        <path d="M7 9.5H25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M7 16H25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M7 23H22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
 
     <symbol id="new" viewBox="0 0 16 16"></symbol>
 </svg>
+
+<div class="page-overlay"></div>
 
 <script src="assets/js/libs.js"></script>
 <script src="assets/js/main.js"></script>

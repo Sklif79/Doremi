@@ -8,7 +8,15 @@ $(document).ready(function () {
         slidesToShow: 3,
         slidesToScroll: 1,
         infinite: true,
-        arrows: true
+        arrows: true,
+        responsive: [
+            {
+                breakpoint: 1025,
+                settings: {
+                    arrows: false
+                }
+            }
+        ]
     });
 
     $('.js_brands-slider').slick({
@@ -22,6 +30,15 @@ $(document).ready(function () {
                 breakpoint: 1201,
                 settings: {
                     slidesToShow: 6,
+                }
+            },
+
+            {
+                breakpoint: 1025,
+                settings: {
+                    slidesToShow: 5,
+                    rows: 1,
+                    arrows: false
                 }
             }
         ]
@@ -57,6 +74,7 @@ $(document).ready(function () {
     searchResultCornerLeftPosition();
     headerBasketMove();
     searchMobile();
+    mobileNav();
 });
 
 $(window).resize(function () {
@@ -66,6 +84,7 @@ $(window).resize(function () {
     getWindowWidth();
     headerBasketMove();
     searchMobile();
+    mobileNav();
 });
 
 function clearSearchField() {
@@ -196,6 +215,38 @@ function headerBasketMove() {
 
 function getWindowWidth() {
     return window.mainWidth = $(window).width();
+}
+
+function mobileNav() {
+    var $button = $('.header-mobile-btn'),
+        $navWrap = $('.header-nav-wrap'),
+        $overlay = $('.page-overlay'),
+        $body = $('body');
+
+    $button.off('click');
+    $overlay.off('click');
+
+    if (getWindowWidth() <= 1024) {
+        $button.on('click', function () {
+            $(this).toggleClass('active');
+            $navWrap.toggleClass('active');
+            $overlay.toggleClass('active');
+            $body.toggleClass('js_no-scroll')
+        });
+
+        $overlay.on('click', function () {
+            clearMobileNav();
+        });
+    } else {
+        clearMobileNav();
+    }
+
+    function clearMobileNav() {
+        $button.removeClass('active');
+        $navWrap.removeClass('active');
+        $overlay.removeClass('active');
+        $body.removeClass('js_no-scroll')
+    }
 }
 
 $.fn.setMaxHeights = function () {

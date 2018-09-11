@@ -18,11 +18,17 @@
     </div>
     <div class="header-bottom">
         <div class="header-bottom-left">
+            <div class="header-mobile-btn">
+                <svg class="header-mobile-btn__ico">
+                    <use xlink:href='#svg-mobile-nav' href='#svg-mobile-nav'/>
+                </svg>
+            </div>
             <a href="/" class="header-logo">
                 <svg class="header-logo__svg">
                     <use xlink:href='#svg-logo' href='#svg-logo'/>
                 </svg>
             </a>
+            <div class="header-nav-wrap">
             <ul class="header-nav">
                 <li>
                     <a href="#">
@@ -57,6 +63,13 @@
                     </a>
                 </li>
             </ul>
+                <ul class="header-nav-mobile">
+                    <li><a href="#">ДОСТАВКА</a></li>
+                    <li><a href="#">ПРЕДЗАКАЗ ТОВАРОВ</a></li>
+                    <li><a href="#">ОПЛАТА</a></li>
+                    <li><a href="#">КОНТАКТЫ</a></li>
+                </ul>
+            </div>
         </div>
         <div class="header-bottom-right">
             <form action="" method="post" name="" class="search">
@@ -96,7 +109,7 @@
             </a>
         </div>
 
-        <!-- миникарта будет отображаться только при наличии .header-basket-minicard__item -->
+        <!-- миникарта будет отображаться только при наличии позиций .header-basket-minicard__item -->
         <div class="header-basket-minicard">
             <div class="header-basket-minicard-inner">
                 <div class="header-basket-minicard-items">
