@@ -4,6 +4,8 @@ $(document).ready(function () {
     getWindowWidth();
 
     //sliders
+
+    //product slider on main page is disabled
     //productSliderInit();
 
     $('.js_articles-slider').slick({
@@ -14,6 +16,19 @@ $(document).ready(function () {
         responsive: [{
             breakpoint: 1025,
             settings: {
+                arrows: false
+            }
+        }, {
+            breakpoint: 641,
+            settings: {
+                slidesToShow: 2,
+                arrows: false
+            }
+        }, {
+            breakpoint: 481,
+            settings: {
+                slidesToShow: 1,
+                dots: true,
                 arrows: false
             }
         }]
@@ -34,6 +49,13 @@ $(document).ready(function () {
             breakpoint: 1025,
             settings: {
                 slidesToShow: 5,
+                rows: 1,
+                arrows: false
+            }
+        }, {
+            breakpoint: 481,
+            settings: {
+                slidesToShow: 4,
                 rows: 1,
                 arrows: false
             }
@@ -70,6 +92,7 @@ $(document).ready(function () {
     headerBasketMove();
     searchMobile();
     mobileNav();
+    articleDotsPosition();
 });
 
 $(window).resize(function () {
@@ -80,6 +103,7 @@ $(window).resize(function () {
     headerBasketMove();
     searchMobile();
     mobileNav();
+    articleDotsPosition();
 });
 
 function clearSearchField() {
@@ -238,6 +262,15 @@ function mobileNav() {
         $navWrap.removeClass('active');
         $overlay.removeClass('active');
         $body.removeClass('js_no-scroll');
+    }
+}
+
+function articleDotsPosition() {
+    var $dots = $('.articles-slider .slick-dots'),
+        $img = $('.articles-slider__img');
+
+    if (getWindowWidth() <= 480) {
+        $dots.css({ "top": $img.height() - 15 - 19 + "px" });
     }
 }
 

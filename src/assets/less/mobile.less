@@ -1,6 +1,153 @@
 @import "variables.less";
 @import "mixins.less";
 
-@media all and (max-width: 657px){
+@media all and (max-width: 640px) {
+  .products-slider-item {
+    flex-basis: 50%;
+  }
 
+  .product-slider__label-sale {
+    top: -33px;
+    left: -3px;
+  }
+
+  .footer-half__bottom {
+    flex-wrap: wrap;
+  }
+
+  .footer-address {
+    order: 1;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 14px;
+  }
+
+  .footer-logo {
+    order: 2;
+    margin-right: 0;
+  }
+
+  .footer-social {
+    order: 3;
+
+    a, a:last-of-type {
+      margin-right: 15px;
+    }
+  }
+
+  .footer-half-section:last-of-type {
+    max-width: none;
+  }
+
+  .search__field {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+}
+
+@media all and (max-width: 480px) {
+  .articles-slider {
+    padding-bottom: 37px;
+    padding-top: 0;
+
+    .slick-dots {
+      top: 52%;
+      bottom: auto;
+      width: auto;
+      right: 13px;
+    }
+
+    .slick-dots li {
+      width: 10px;
+      height: 10px;
+      margin: 0 2px;
+
+      button {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        padding: 0;
+
+        &::before {
+          width: 10px;
+          height: 10px;
+          content: "";
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.3);
+          opacity: 1;
+        }
+      }
+
+      &.slick-active {
+        button {
+          &::before {
+            background: rgba(255, 255, 255, 0.8);
+          }
+        }
+      }
+    }
+
+    .slick-dotted.slick-slider {
+      margin-bottom: 0;
+    }
+  }
+
+  .articles-slider-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .articles-slider__img {
+    margin-bottom: 36px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .articles-slider .slick-slide, .articles-slider .slick-list {
+    margin-right: 0;
+  }
+
+  .articles-slider__date, .articles-slider__title, .articles-slider__description {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .footer-subscribe__submit {
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .footer-subscribe__sex {
+    margin-right: 0;
+  }
+
+  .footer-subscribe {
+    flex-wrap: wrap;
+  }
+
+  .footer-logo__svg {
+    width: 107px;
+    height: 20px;
+  }
+
+  .footer-half__bottom {
+    margin-bottom: 15px;
+  }
+
+  .footer-subscribe-info {
+    .lh(15);
+  }
+
+  .footer-subscribe {
+    margin-bottom: 19px;
+  }
+
+  .footer-subscribe__email {
+    width: ~"calc(100% - 48px - 115px)";
+  }
 }
