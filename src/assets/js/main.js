@@ -100,6 +100,7 @@ $(document).ready(function () {
     searchMobile();
     mobileNav();
     articleDotsPosition();
+    articleTitleHeight();
 });
 
 $(window).resize(function () {
@@ -111,6 +112,7 @@ $(window).resize(function () {
     searchMobile();
     mobileNav();
     articleDotsPosition();
+    articleTitleHeight();
 });
 
 function clearSearchField() {
@@ -282,6 +284,10 @@ function articleDotsPosition() {
     if (getWindowWidth() <= 480) {
         $dots.css({"top": $img.height() - 15 - 19 + "px"})
     }
+}
+
+function articleTitleHeight() {
+    $('.articles-slider__title').setMaxHeights();
 }
 
 $.fn.setMaxHeights = function () {
