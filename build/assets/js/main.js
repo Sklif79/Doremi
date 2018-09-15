@@ -59,6 +59,13 @@ $(document).ready(function () {
                 rows: 1,
                 arrows: false
             }
+        }, {
+            breakpoint: 360,
+            settings: {
+                slidesToShow: 3,
+                rows: 1,
+                arrows: false
+            }
         }]
     });
 
@@ -84,8 +91,9 @@ $(document).ready(function () {
         }
     });
 
+    asideFilterMobile();
     clearSearchField();
-    productSliderHeight();
+    productItemHeight();
     miniCard();
     toUp();
     searchResultCornerLeftPosition();
@@ -98,7 +106,7 @@ $(document).ready(function () {
 
 $(window).resize(function () {
     clearSearchField();
-    productSliderHeight();
+    productItemHeight();
     searchResultCornerLeftPosition();
     getWindowWidth();
     headerBasketMove();
@@ -161,9 +169,13 @@ function searchResultCornerLeftPosition() {
     $('.search-result__corner').css({ "left": Math.ceil($('.search__field').offset().left) + 60 + "px" });
 }
 
-function productSliderHeight() {
-    $('.product-slider__brand').setMaxHeights();
-    $('.product-slider__title').setMaxHeights();
+function productItemHeight() {
+    $('.product-slider__brand, .product-item__brand, .product-slider__title-wrap, .product-item__title-wrap').css({ 'height': '' });
+
+    setTimeout(function () {
+        $('.product-slider__brand, .product-item__brand').setMaxHeights();
+        $('.product-slider__title-wrap, .product-item__title-wrap').setMaxHeights();
+    }, 200);
 }
 
 //миникарта активируется, когда внутри есть элементы
@@ -250,6 +262,7 @@ function mobileNav() {
             $navWrap.toggleClass('active');
             $overlay.toggleClass('active');
             $body.toggleClass('js_no-scroll');
+            $('.js_aside-close').trigger('click');
         });
 
         $overlay.on('click', function () {
@@ -277,7 +290,23 @@ function articleDotsPosition() {
 }
 
 function articleTitleHeight() {
-    $('.articles-slider__title').setMaxHeights();
+    $('.articles-slider__title-wrap').css({ 'height': '' });
+
+    setTimeout(function () {
+        $('.articles-slider__title-wrap').setMaxHeights();
+    }, 200);
+}
+
+function asideFilterMobile() {
+    var $filter = $('.aside-filter');
+
+    $('.js_show-mobile-filter').on('click', function () {
+        $filter.addClass('active');
+    });
+
+    $('.aside-close').on('click', function () {
+        $filter.removeClass('active');
+    });
 }
 
 $.fn.setMaxHeights = function () {
