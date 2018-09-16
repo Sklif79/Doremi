@@ -76,20 +76,33 @@ $(document).ready(function () {
         minimumResultsForSearch: Infinity
     });
 
-    //fancybox
-    $('a.fancybox').fancybox({
-        closeBtn: true,
-        padding: [20, 20, 18, 20],
-        helpers: {
-            overlay: {
-                css: {
-                    'background': 'rgba(51,51,51,0.8)'
-                }
+    //PDP slider
+    $('.js_product-slider-big').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: '.js_product-slider-nav',
+        responsive: [{
+            breakpoint: 1025,
+            settings: {
+                dots: true
+            }
+        }]
+    }).css({ "opacity": "1" });
 
-            },
-            title: { type: 'inside' }
-        }
-    });
+    $('.js_product-slider-nav').slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        asNavFor: '.js_product-slider-big',
+        focusOnSelect: true,
+        arrows: false,
+        verticalSwiping: true,
+        vertical: true,
+        centerMode: true
+    }).css({ "opacity": "1" });
+
+    $('.product-tab-mobile').on('click', mobileAccordion);
 
     asideFilterMobile();
     clearSearchField();
@@ -102,6 +115,11 @@ $(document).ready(function () {
     mobileNav();
     articleDotsPosition();
     articleTitleHeight();
+    tabs();
+    productPageLabelHeight();
+    customCounter();
+    productPrice();
+    oneClick();
 });
 
 $(window).resize(function () {
@@ -114,6 +132,7 @@ $(window).resize(function () {
     mobileNav();
     articleDotsPosition();
     articleTitleHeight();
+    clearMobileAccordion();
 });
 
 function clearSearchField() {
@@ -297,6 +316,14 @@ function articleTitleHeight() {
     }, 200);
 }
 
+function productPageLabelHeight() {
+    $('.product-choose-param-item').css({ 'height': '' });
+
+    setTimeout(function () {
+        $('.product-choose-param-item').setMaxHeights();
+    }, 200);
+}
+
 function asideFilterMobile() {
     var $filter = $('.aside-filter');
 
@@ -307,6 +334,100 @@ function asideFilterMobile() {
     $('.aside-close').on('click', function () {
         $filter.removeClass('active');
     });
+}
+
+function tabs() {
+    $(document).on('click', '.tab', function () {
+        if (getWindowWidth() > 768) {
+            $(this).closest('.tabs-wrap').find('.tab, .panel').removeClass('active');
+            $(this).addClass('active').closest('.tabs-wrap').find('div[data-id="' + $(this).attr('data-id') + '"]').addClass('active');
+        }
+    });
+}
+
+function customCounter() {
+    $('.counter-button').on('click', function () {
+        var $counter = $(this).closest('.counter').find('.counter__value');
+
+        if ($(this).data('counter-button') === "up") {
+            $counter.val(parseInt($counter.val()) + 1);
+
+            if (parseInt($counter.val()) > parseInt($counter.data('max-count'))) {
+                $counter.val(parseInt($counter.data('max-count')));
+            }
+        } else {
+            $counter.val(parseInt($counter.val()) - 1);
+
+            if (parseInt($counter.val()) < 1) {
+                $counter.val(1);
+            }
+        }
+    });
+
+    $(".counter__value").keydown(function (event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+            return false;
+        }
+    });
+}
+
+function productPrice() {
+    var $input = $('.product-choose-param__checkbox');
+
+    activeLabelEl($input);
+
+    $input.on('click', function () {
+        activeLabelEl($input);
+    });
+
+    function activeLabelEl($input) {
+        var $price = $('.product-price'),
+            $oldPrice = $('.product-old-price'),
+            currency = ' руб.';
+
+        $input.each(function () {
+            if ($(this).prop('checked')) {
+                $price.text($(this).val() + currency);
+
+                if ($(this).data('sale')) {
+                    $oldPrice.text($(this).data('sale') + currency).show();
+                    $price.addClass('sale');
+                } else {
+                    $oldPrice.text('').hide();
+                    $price.removeClass('sale');
+                }
+            }
+        });
+    }
+}
+
+function oneClick() {
+    $('.js_one-click').fancybox({
+        closeBtn: true,
+        padding: [20, 20, 18, 20],
+        helpers: {
+            overlay: {
+                css: {
+                    'background': 'rgba(3,3,3,0.8)'
+                }
+
+            }
+        }
+    });
+}
+
+function mobileAccordion() {
+    if (getWindowWidth() < 769) {
+        $('.product-tab-mobile').not($(this)).removeClass('active').next().slideUp();
+        $(this).toggleClass('active').next().stop().slideToggle();
+    }
+}
+
+function clearMobileAccordion() {
+    if (getWindowWidth() > 768) {
+        $('.product-tab-mobile').removeClass('active').next().css('display', '');
+    }
 }
 
 $.fn.setMaxHeights = function () {

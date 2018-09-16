@@ -1,149 +1,184 @@
 /* - - - - - - - - - - - - - - - - Global styles - - - - - - - - - - - - - - - -*/
 html {
-    font-size: 16px;
-    line-height: 24px;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
-    color: @main-color;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: @main-color;
 }
 
 html,
 body {
-    min-height: 100vh;
+  min-height: 100vh;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    .fsz(14);
+  display: flex;
+  flex-direction: column;
+  .fsz(14);
 
-    &.js_no-scroll {
-        overflow: hidden;
-        height: 100%;
-    }
+  &.js_no-scroll {
+    overflow: hidden;
+    height: 100%;
+  }
 }
 
 h1 {
-    .fsz(36);
-    font-weight: 900;
+  .fsz(36);
+  font-weight: 900;
 }
 
 h2 {
-    .fsz(20);
-    font-weight: 500;
+  .fsz(20);
+  font-weight: 500;
 }
 
 h3 {
-    .fsz(16);
-    font-weight: 500;
+  .fsz(16);
+  font-weight: 500;
 }
 
 h4 {
-    .fsz(13);
-    line-height: 19px;
-    font-weight: 500;
+  .fsz(13);
+  line-height: 19px;
+  font-weight: 500;
 }
 
 a:not([class]) {
-    color: @red;
+  color: @red;
 
-    &:hover {
-        border-bottom: 1px solid @red;
-    }
+  &:hover {
+    border-bottom: 1px solid @red;
+  }
 }
 
 img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 i, em {
-    font-style: italic;
+  font-style: italic;
 }
 
 strong, b {
-    font-weight: bold;
+  font-weight: bold;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+ul:not([class]) {
+  padding-left: 37px;
+
+  li {
+    color: @black17;
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    .fsz(13);
+    .lh(24);
+    list-style: none;
+    position: relative;
+
+    &::before {
+      content: "\00B7";
+      font-size: 26px;
+      position: absolute;
+      left: -12px;
+      top: 1px;
+    }
+  }
 }
 
 .main {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    margin-top: 92px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 92px;
 }
 
 .header, .footer {
-    flex: none;
+  flex: none;
 }
 
 .container {
-    max-width: 1230px;
-    padding: 0 40px;
-    margin: 0 auto;
-    width: 100%;
+  max-width: 1280px;
+  padding: 0 40px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .clearfix:after {
-    content: "";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
 }
 
 .slick-arrow {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.slick-slide img {
+  display: inline;
 }
 
 .btn {
-    display: inline-block;
-    height: 50px;
-    .lh(50);
-    .fsz(16);
-    padding: 0 23px;
-    font-weight: 500;
-    font-family: "Montserrat", sans-serif;
-    text-align: center;
+  display: inline-block;
+  height: 50px;
+  .lh(50);
+  .fsz(16);
+  padding: 0 23px;
+  font-weight: 500;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  user-select: none;
 
-    &:hover {
-        box-shadow: 0 4px 4px fade(#000, 25%);
-    }
+  &:hover {
+    box-shadow: 0 4px 4px fade(#000, 25%);
+  }
 }
 
 .select2-container .select2-choice {
-    height: 100%;
-    border: none;
-    border-radius: 0;
+  height: 100%;
+  border: none;
+  border-radius: 0;
 }
 
 .select2-container .select2-choice > .select2-chosen {
-    height: 100%;
+  height: 100%;
 }
 
 .select2-dropdown-open .select2-choice {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .select2-drop {
-    color: @black17;
-    border-radius: 0;
+  color: @black17;
+  border-radius: 0;
 }
 
 .select2-drop-active {
-    border: none;
+  border: none;
 }
 
 .select2-container .select2-choice .select2-arrow {
-    border-radius: 0;
-    width: 28px;
-    border: none;
-    background: url('data:image/svg+xml;utf8,<svg width="10" height="5" viewBox="0 0 10 5" xmlns="http://www.w3.org/2000/svg"><path d="M5.49505 4.82011L9.79476 1.04856C10.0684 0.808646 10.0684 0.419663 9.79476 0.179864C9.52135 -0.0599547 9.0779 -0.0599547 8.80451 0.179864L4.99993 3.5171L1.19548 0.179961C0.921955 -0.0598577 0.478552 -0.0598577 0.205141 0.179961C-0.0683805 0.41978 -0.0683805 0.808743 0.205141 1.04866L4.50492 4.8202C4.64169 4.94011 4.82075 5 4.99991 5C5.17915 5 5.35835 4.94 5.49505 4.82011Z" fill="#07080C"/></svg>') no-repeat 50% 50%;
-    background: url("../images/arrow-bottom.svg") 50% 50% no-repeat;
+  border-radius: 0;
+  width: 28px;
+  border: none;
+  background: url('data:image/svg+xml;utf8,<svg width="10" height="5" viewBox="0 0 10 5" xmlns="http://www.w3.org/2000/svg"><path d="M5.49505 4.82011L9.79476 1.04856C10.0684 0.808646 10.0684 0.419663 9.79476 0.179864C9.52135 -0.0599547 9.0779 -0.0599547 8.80451 0.179864L4.99993 3.5171L1.19548 0.179961C0.921955 -0.0598577 0.478552 -0.0598577 0.205141 0.179961C-0.0683805 0.41978 -0.0683805 0.808743 0.205141 1.04866L4.50492 4.8202C4.64169 4.94011 4.82075 5 4.99991 5C5.17915 5 5.35835 4.94 5.49505 4.82011Z" fill="#07080C"/></svg>') no-repeat 50% 50%;
+  background: url("../images/arrow-bottom.svg") 50% 50% no-repeat;
 }
 
 .select2-results .select2-highlighted {
-    background: @black17;
+  background: @black17;
 }
 
 .select2-container .select2-choice .select2-arrow b {
-    background: none;
+  background: none;
+}
+
+.popup {
+  display: none;
 }
