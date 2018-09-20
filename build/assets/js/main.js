@@ -120,6 +120,15 @@ $(document).ready(function () {
     customCounter();
     productPrice();
     oneClick();
+    BasketTotalPrice();
+    checkedInput();
+    basketBox();
+    setBoxPrice($('.js_box-price'));
+    delBasketItem();
+    basketPost();
+    preorderMove();
+    shippingInfoBasketMove();
+    basketTotalFixed();
 });
 
 $(window).resize(function () {
@@ -133,6 +142,9 @@ $(window).resize(function () {
     articleDotsPosition();
     articleTitleHeight();
     clearMobileAccordion();
+    preorderMove();
+    shippingInfoBasketMove();
+    basketTotalFixed();
 });
 
 function clearSearchField() {
@@ -150,7 +162,7 @@ function clearSearchField() {
                 $searchResult.addClass('active');
 
                 //сюда можно впихать аякс для поиска,
-                //если нужен поиск после каждой введенной буквы (добавить переинициализацию слайдера и высоты продуктов)
+                //если нужен поиск после каждой введенной буквы (добавить переинициализацию слайдера и высоты продуктов в success)
                 //productSliderHeight();
                 //productSliderInit();
 
@@ -347,7 +359,12 @@ function tabs() {
 
 function customCounter() {
     $('.counter-button').on('click', function () {
-        var $counter = $(this).closest('.counter').find('.counter__value');
+        var $counter = $(this).closest('.counter').find('.counter__value'),
+            $basketItem = $(this).closest('.basket-item'),
+            $productPrice = $basketItem.find('.basket-item__price').data('price'),
+            $totalPriceEl = $basketItem.find('.basket-item__total'),
+            $totalPrice = 0,
+            totalPriceResult = '';
 
         if ($(this).data('counter-button') === "up") {
             $counter.val(parseInt($counter.val()) + 1);
@@ -362,6 +379,12 @@ function customCounter() {
                 $counter.val(1);
             }
         }
+
+        if ($basketItem.length) {
+            $totalPrice = parseFloat($productPrice) * parseInt($counter.val());
+            $totalPriceEl.text(setPrice($totalPrice));
+            BasketTotalPrice();
+        }
     });
 
     $(".counter__value").keydown(function (event) {
@@ -370,6 +393,60 @@ function customCounter() {
             return false;
         }
     });
+}
+
+function setPrice(priceStr) {
+    var priceArr = priceStr.toFixed(2).split('.'),
+        price = '';
+
+    price = priceArr[1] === '00' ? priceArr[0] + ' руб.' : priceArr[0] + ' руб. ' + priceArr[1] + ' коп.';
+
+    return price;
+}
+
+function delBasketItem() {
+    $('.js_basket-item-remove').on('click', function () {
+        $(this).closest('.basket-item').remove();
+        BasketTotalPrice();
+
+        if (!$('.basket-item').length) {
+            $('h1').text('Корзина пуста');
+            $('.basket-form').html('');
+        }
+    });
+}
+
+function BasketTotalPrice() {
+    if ($('.basket-form').length) {
+        var $subTotal = $('.basket-sub-total-price'),
+            $productItem = $('.basket-item__price'),
+            $checkbox = $('.js_box-checkbox'),
+            resultValue = 0;
+
+        $productItem.each(function () {
+            resultValue += parseFloat($(this).data('price')) * parseInt($(this).closest('.basket-item').find('.counter__value').val());
+        });
+
+        if ($checkbox.prop('checked')) {
+            resultValue += parseFloat($('.js_box-price:checked').data('price'));
+        }
+
+        $subTotal.text(setPrice(resultValue));
+    }
+}
+
+function basketBox() {
+    $('.js_box-checkbox, .js_box-price').on('change', function () {
+        BasketTotalPrice();
+        setBoxPrice($(this));
+    });
+}
+
+function setBoxPrice($el) {
+    if ($el.hasClass('js_box-price') && $('.basket-products-box__price').length) {
+        console.log($('.js_box-price:checked').data('price'));
+        $('.basket-products-box__price').text(setPrice(parseFloat($('.js_box-price:checked').data('price'))));
+    }
 }
 
 function productPrice() {
@@ -427,6 +504,89 @@ function mobileAccordion() {
 function clearMobileAccordion() {
     if (getWindowWidth() > 768) {
         $('.product-tab-mobile').removeClass('active').next().css('display', '');
+    }
+}
+
+/**
+ * inputs have to parent element label
+ */
+function checkedInput() {
+    var reset = document.querySelectorAll('input[type="reset"]');
+
+    inspectionInputs(document.querySelectorAll('input[type="checkbox"], input[type="radio"]'));
+
+    document.addEventListener('change', function (e) {
+        if (e.target.closest('.checkbox') && !e.target.hasAttribute('disabled')) {
+            e.target.closest('.checkbox').classList.toggle('active');
+        }
+
+        if (e.target.closest('.radio')) {
+            inspectionInputs(document.querySelectorAll('input[type="radio"]'));
+        }
+    });
+
+    document.addEventListener('click', function (e) {
+        for (var i = 0; i < reset.length; i++) {
+            if (e.target === reset[i]) {
+                setTimeout(function () {
+                    inspectionInputs(document.querySelectorAll('input[type="checkbox"], input[type="radio"]'));
+                }, 0);
+            }
+        }
+    });
+}
+
+function inspectionInputs(arr) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i].checked) {
+            arr[i].parentElement.classList.add('active');
+        } else {
+            arr[i].parentElement.classList.remove('active');
+        }
+
+        if (arr[i].hasAttribute('disabled')) {
+            arr[i].parentElement.classList.add('disabled');
+        }
+    }
+}
+
+function basketPost() {
+    var $postRow = $('.basket-address__post');
+
+    $('.basket-shipping__checkbox').on('click', function () {
+        if ($(this).hasClass('js_basket-post')) {
+            $postRow.css({ 'display': 'flex' });
+        } else {
+            $postRow.css({ 'display': '' });
+        }
+    });
+}
+
+function preorderMove() {
+    $('.basket-item').each(function () {
+        var $preOrder = $(this).find('.basket-item__pre-order');
+        if (getWindowWidth() <= 1024) {
+            $(this).append($preOrder);
+        } else {
+            $(this).find('.basket-item__info').append($preOrder);
+        }
+    });
+}
+
+function shippingInfoBasketMove() {
+    var $productBoxPrice = $('.basket-products-box__price');
+    if (getWindowWidth() <= 768) {
+        $('.basket-products-box-select').append($productBoxPrice);
+    } else {
+        $('.basket-products-box').append($productBoxPrice);
+    }
+}
+
+function basketTotalFixed() {
+    if ($('.basket-submit-wrap').length && getWindowWidth() <= 768) {
+        $('body').addClass('basket-page');
+    } else {
+        $('body').removeClass('basket-page');
     }
 }
 
