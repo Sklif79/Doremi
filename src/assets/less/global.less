@@ -251,3 +251,30 @@ input[type="checkbox"], input[type="radio"] {
     }
   }
 }
+
+.fancybox-skin {
+  background: #fff;
+  border-radius: 0;
+}
+
+.fancybox-close {
+  background-image: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 2px;
+  right: 2px;
+
+  &::before, &::after {
+    content: "";
+    width: 16px;
+    height: 2px;
+    background: #C4C4C4;
+    position: absolute;
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(135deg);
+  }
+}
