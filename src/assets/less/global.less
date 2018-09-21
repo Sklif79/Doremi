@@ -265,6 +265,12 @@ input[type="checkbox"], input[type="radio"] {
   top: 2px;
   right: 2px;
 
+  &:hover {
+    &::before, &::after {
+      background: @red;
+    }
+  }
+
   &::before, &::after {
     content: "";
     width: 16px;
